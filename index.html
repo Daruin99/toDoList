@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h2>What's up,</h2>
+      <input type="text" class="header" placeholder="Name here" />
+    </header>
+    <main>
+      <section>
+        <h4>CREATE A TODO</h4>
+        <h5>What's on your todo?</h5>
+        <input type="text" class="todo-input" placeholder="e.g Buy some milk" />
+      </section>
+      <section>
+        <h5>Pick a category</h5>
+        <div class="input">
+          <label class="container"
+            >Personal
+            <input
+              type="radio"
+              name="category"
+              id="personal"
+              value="personal"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >Business
+            <input
+              type="radio"
+              name="category"
+              id="business"
+              value="business"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <button type="submit" class="input-button">Add Todo</button>
+      </section>
+      <section>
+        <h4>Todo List</h4>
+      </section>
+
+      <section class="todos">
+        <!--
+
+        <div class="todo-item">
+          <div class="todo-task">
+            <label>
+              <input type="checkbox" name="category" class="business" value="business">
+              <input type="text" id="editable-input" value="buy some milk">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="buttons">
+            <button class="edit"> Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+        </div>
+            -->
+      </section>
+    </main>
+  </body>
+</html>
