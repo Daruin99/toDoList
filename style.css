@@ -122,8 +122,8 @@ h5 {
 /* Style the indicator (dot/circle) */
 .container #personal + .checkmark:after {
   background-color: var(--personal);
-  top: 1px;
-  left: 1px;
+  top: 10%;
+  left: 10%;
   width: 80%;
   height: 80%;
   border-radius: 100%;
@@ -131,8 +131,8 @@ h5 {
 
 .container #business + .checkmark:after {
   background-color: var(--business);
-  top: 1px;
-  left: 2px;
+  top: 10%;
+  left: 10%;
   width: 80%;
   height: 80%;
   border-radius: 100%;
