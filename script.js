@@ -1,5 +1,15 @@
-const myTodos = [];
+const inputName = document.querySelector('.header');
+const userName = localStorage.getItem('username') || '';
+
+inputName.value = userName;
+
+inputName.addEventListener('change', () => {
+  localStorage.setItem('username', inputName.value);
+});
+
+const myTodos = JSON.parse(localStorage.getItem('todos')) || [];
 const toDoSection = document.querySelector('.todos');
+displayToDos();
 const inputButton = document.querySelector('.input-button');
 
 function Todo(task, category) {
@@ -21,10 +31,14 @@ function addToDoToList() {
   }
 
   myTodos.push(new Todo(task, category));
+  localStorage.setItem('todos', JSON.stringify(myTodos));
   displayToDos();
 }
 
 function displayToDos() {
+  if (myTodos.length == 0) {
+    return;
+  }
   const toDos = document.querySelectorAll('.todo-item');
   toDos.forEach((todo) => todo.remove());
 
@@ -32,8 +46,6 @@ function displayToDos() {
     createToDos(myTodos[i], i);
   }
 }
-
-
 
 function createToDos(toDoItem, order) {
   const toDo = document.createElement('div');
@@ -95,21 +107,24 @@ function createToDos(toDoItem, order) {
 
   editableInput.addEventListener('focusout', () => {
     editableInput.setAttribute('readonly', true);
+    toDoItem.task = editableInput.value;
+    localStorage.setItem('todos', JSON.stringify(myTodos));
   });
 
   deleteButton.addEventListener('click', () => {
     myTodos.splice(myTodos.indexOf(toDoItem), 1);
     toDo.remove();
+    localStorage.setItem('todos', JSON.stringify(myTodos));
+
   });
 
- span.addEventListener('click' , () => {
-   if (checkButton.checked) {
-     editableInput.style.textDecoration = 'none';
-     editableInput.style.color = 'black';
-   }
-   else {
-     editableInput.style.textDecoration = 'line-through';
-     editableInput.style.color = 'gray';
-   }
- })
+  span.addEventListener('click', () => {
+    if (checkButton.checked) {
+      editableInput.style.textDecoration = 'none';
+      editableInput.style.color = 'black';
+    } else {
+      editableInput.style.textDecoration = 'line-through';
+      editableInput.style.color = 'gray';
+    }
+  });
 }
